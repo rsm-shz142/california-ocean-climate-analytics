@@ -1,11 +1,24 @@
+# Python
 __pycache__/
+*.pyc
 .ipynb_checkpoints/
+
+# macOS
 .DS_Store
 
+# virtual environments
 .venv/
 .venv311/
 
+# Raw NOAA data
 data/raw/
 *.nc
 
-.env
+# Streamlit
+.streamlit/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log

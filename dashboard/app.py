@@ -1,12 +1,13 @@
 import streamlit as st
 
 from data import load_dashboard_data
-from pages.overview import render_overview
-from pages.trends import render_trends
-from pages.marine_heatwaves import render_marine_heatwaves
-from pages.enso import render_enso
-from pages.forecasting import render_forecasting
-from pages.about import render_about
+from components import sidebar_brand
+from views.overview import render_overview
+from views.trends import render_trends
+from views.marine_heatwaves import render_marine_heatwaves
+from views.enso import render_enso
+from views.forecasting import render_forecasting
+from views.about import render_about
 
 
 st.set_page_config(
@@ -15,13 +16,12 @@ st.set_page_config(
     layout="wide",
 )
 
-
 data = load_dashboard_data()
 
-st.sidebar.title("🌊 Navigation")
+sidebar_brand()
 
 page = st.sidebar.radio(
-    "Go to",
+    "Explore",
     [
         "🏠 Overview",
         "🌡 SST Trends",
@@ -31,7 +31,6 @@ page = st.sidebar.radio(
         "ℹ About",
     ],
 )
-
 
 if page == "🏠 Overview":
     render_overview(data)
